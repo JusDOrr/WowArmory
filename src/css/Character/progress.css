@@ -1,0 +1,83 @@
+﻿.progressControl{
+    margin: auto;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.progressControlWell{
+    width: var(--ControlWidth);
+    margin: auto;
+    /*text-align: center;*/
+}
+
+.raidWell{
+    display: inline-block;
+    width: 365px;
+    margin: auto;
+
+    background-image: var(--RaidBackImage);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    color: var(--GoldColor);
+}
+
+.raidWell img{
+    width: 325px;
+    height: 110px;
+    background-size: contain;
+}
+
+.raid{
+    width: 250px;
+    margin: auto;
+}
+
+.raid div{
+    display: inline-block;
+    width: 50px;
+    vertical-align: top;
+}
+
+.raidProgressBar{
+    background-color: grey;
+    display: inline-block;
+    width: 190px;
+    margin-left: 5px;
+}
+
+/* Talent Tooltip container */
+.tooltip-raid-progress {
+    position: relative;
+    opacity: 100;
+}
+
+.tooltip-raid-progress .tooltiptext-raid-progress {
+    visibility: hidden;
+
+    height: auto;
+    width: max-content;
+    min-width: 200px;
+    padding: 5px 0;
+    
+    color: white;
+
+    /*background-color: rgba(0, 0, 0, 0.90);*/
+    background-image: var(--TooltipBackImage);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border: 3px solid rgb(52, 52, 52);
+    border-radius: 6px;
+    position: absolute;
+    z-index: 10;
+}
+
+.tooltip-raid-progress-top {
+    bottom: 0;
+    left: 50px;
+}
+
+.tooltip-raid-progress:hover .tooltiptext-raid-progress {
+    visibility: visible;
+}

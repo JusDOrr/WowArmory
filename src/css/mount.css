@@ -1,0 +1,26 @@
+﻿.mountWell {
+    font-family: 'Hammersmith One', sans-serif;
+    margin: 0;
+}
+
+.mountHeader {
+    text-align: center;
+    border: none;
+    margin: 0;
+}
+
+.mountHeader h1 {
+    font-size: 54px;
+}
+
+.mountRowCell tr td {
+    vertical-align: middle;
+}
+
+/* Mount Row Icon */
+/*.mountIcon {
+    display: inline-block;
+    border: solid;
+    padding: 0;
+    width: 55px;
+}*/
