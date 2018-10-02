@@ -1,11 +1,11 @@
 ﻿/* GLOBAL CSS */
 
 :root {
-    --HordeBackImage: url("/images/RedChalkboard.jpg");
-    --AlliBackImage: url("/images/BlueChalkboard.jpg");
-    --RaidBackImage: url("/images/GreenChalkboard.jpg");
-    --ChalkBackImage: url("/images/GreyChalkboard.jpeg");
-    --TooltipBackImage: url("/images/DarkGrit.jpg");
+    --HordeBackImage: url("./images/RedChalkboard.jpg");
+    --AlliBackImage: url("./images/BlueChalkboard.jpg");
+    --RaidBackImage: url("./images/GreenChalkboard.jpg");
+    --ChalkBackImage: url("./images/GreyChalkboard.jpeg");
+    --TooltipBackImage: url("./images/DarkGrit.jpg");
 
     --HordeColor: rgb(80, 0, 0);
     --AlliColor: rgb(0, 0, 80);

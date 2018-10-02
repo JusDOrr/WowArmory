@@ -1,6 +1,6 @@
 ﻿.gear-left-side {
     float: left;
-    display: inline-block;
+    /*display: inline-block;*/
 
     min-height: 375px;
     width: 385px;
@@ -8,7 +8,7 @@
 
 .gear-right-side {
     float: right;
-    display: inline-block;
+    /*display: inline-block;*/
 
     min-height: 375px;
     width: 385px;

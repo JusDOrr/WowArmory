@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
-import './css/site.css';
+import './../../site.css';
 
 class HeaderNavBar extends Component {
     render(){
