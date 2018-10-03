@@ -1,0 +1,50 @@
+--GLOBAL CHECKLIST--
+
+1) Gear ToolTip
+	-Item Sets and Socket Info
+	-Fix sell price in creation (COMPLETE)
+	-Fix certain descriptions showing up with strange math
+	-Fix occasional item level discrepancy
+	-Fix new search not clearing old tooltips... (COMPLETE)
+
+2) Fix Talents Control (COMPLETE)
+	-Talents come back from server in a strange order
+	-Need to show 2 columns of stats (15-60) & (75+)
+
+3) Complete Stats Control (COMPLETE)
+	-Currently hard coded to show only warrior
+	-This will take some time...
+
+4) Achievements
+	-Implement
+
+5) Collections
+	-Implement
+
+6) Raid Progress
+	-Implement
+
+7) PVP
+	-Implement
+
+8) Reputation
+	-Implement
+
+9) "Sticky" Nameplate and NavBars
+	-https://www.w3schools.com/howto/howto_js_navbar_sticky.asp
+
+10) Raid Progress Tooltips (COMPLETE)
+	-Progress per raid teir with number boss kills...
+
+11) Stat Tooltips (COMPLETE)
+	-Missing details for % based values...
+
+12) Pvp Bar & tooltips
+	-Show valid data...
+
+13) Armory Character Image (COMPLETE)
+	-Move down a bit
+
+14) Strip the css out of the .jsx files (COMPLETE)
+
+15) Fix item display the way gear tool tips were fixed
