@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { Well } from 'react-bootstrap';
 
 import ArmoryNavBar from './../../NavBars/ArmoryNavBar.js';
+import Achievements from './../Achievements/Achievements.js';
+import Collections from './../Collections/Collections.js';
+import RaidProgress from './../RaidProgress/RaidProgress.js';
+import Reputation from './../Reputation/Reputation.js';
+import Pvp from './../Pvp/Pvp.js';
+
 import Progression from './Progression.js';
 import Talents from './Talents.js';
 import Stats from './Stats.js';
@@ -39,6 +45,16 @@ class Character extends Component{
         switch (this.state.ArmoryNavType) {
             case Enums.ArmoryNavType.Character:
                 return (<CharacterViewer data={this.props.data} faction={faction}></CharacterViewer>);
+            case Enums.ArmoryNavType.Achievements:
+                return (<Achievements />);
+            case Enums.ArmoryNavType.Collections:
+                return (<Collections />);
+            case Enums.ArmoryNavType.RaidProgress:
+                return (<RaidProgress />);
+            case Enums.ArmoryNavType.PVP:
+                return (<Pvp />);
+            case Enums.ArmoryNavType.Reputation:
+                return (<Reputation data={this.props.data.reputation} />);
             default:
                 return (<div/>);
         }

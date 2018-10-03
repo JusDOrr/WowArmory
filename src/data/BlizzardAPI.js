@@ -31,7 +31,7 @@ export function GetMounts (loadCallBack, errorCallBack) {
 };
 
 export function GetCharacter (loadCallBack, errorCallBack, realm, character) {
-   var APIPath = "https://us.api.battle.net/wow/character/" + realm + "/" + character + "?fields=talents,stats,items,guild,titles,progression&locale=" + addLocaleField() + addAPIKeyField();
+   var APIPath = "https://us.api.battle.net/wow/character/" + realm + "/" + character + "?fields=talents,stats,items,guild,titles,progression,reputation&locale=" + addLocaleField() + addAPIKeyField();
    GET(APIPath, loadCallBack, errorCallBack);
 };
 

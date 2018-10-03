@@ -51,10 +51,10 @@ class Raid extends Component{
         })
 
         // Build LFR, Normal, Heroic, and Mythic Progress Bars...
-        var lfrProg = React.createElement(RaidProgress, { raid: raid.name, progress: lfrBossProg }, null);
-        var normProg = React.createElement(RaidProgress, { raid: raid.name, progress: normBossProg }, null);
-        var heroProg = React.createElement(RaidProgress, { raid: raid.name, progress: heroBossProg }, null);
-        var mythicProg = React.createElement(RaidProgress, { raid: raid.name, progress: mythicBossProg }, null);
+        var lfrProg = React.createElement(RaidProgression, { raid: raid.name, progress: lfrBossProg }, null);
+        var normProg = React.createElement(RaidProgression, { raid: raid.name, progress: normBossProg }, null);
+        var heroProg = React.createElement(RaidProgression, { raid: raid.name, progress: heroBossProg }, null);
+        var mythicProg = React.createElement(RaidProgression, { raid: raid.name, progress: mythicBossProg }, null);
 
         return (
                 <Well className="raidWell">
@@ -72,7 +72,7 @@ class Raid extends Component{
     }
 }
 
-class RaidProgress extends Component{
+class RaidProgression extends Component{
     getProgressStyle = (killTotal, bossTotal) => {
         var percent = (killTotal / bossTotal) * 100;
         var style = "success";
@@ -89,28 +89,37 @@ class RaidProgress extends Component{
         var progress = this.props.progress.bosses;
 
         var killTotal = 0;
-        var value = progress.forEach(function (boss, index) {
+        progress.forEach(function (boss, index) {
             if (boss.kills > 0)
                 killTotal += 1;
         });
 
         var label = killTotal + "/" + progress.length;
+        var invLabel = (killTotal === 0) ? "0/" + progress.length : "";
+
         var style = this.getProgressStyle(killTotal, progress.length);
+
+        var progressWidth = Math.floor((killTotal / progress.length) * 100);
+        var inverseWidth = (100 - progressWidth);
 
         return (
                 <div className="raid">
                     <div>{difficultyName}</div>
                     <div className="tooltip-raid-progress">
-                        <RaidProgressToolTip key={Math.random()} raid={this.props.raid} progress={this.props.progress} />   
-                        <ProgressBar striped active bsStyle={style} min={0} max={progress.length} now={killTotal} label={label}
-                                     style={{ backgroundColor: "grey", display: "inline-block", width: "190px", marginLeft: "5px" }} />
+                        <RaidProgressionToolTip key={Math.random()} raid={this.props.raid} progress={this.props.progress} />
+                        <ProgressBar min={0} max={progress.length} style={{ display: "inline-block", width: "190px", marginLeft: "5px" }}> 
+                            <ProgressBar active bsStyle={style} now={killTotal} label={label}
+                                        style={{width: progressWidth + "%", color: "white"}}/>
+                            <ProgressBar now={progress.length - killTotal} label={invLabel}
+                                        style={{width: inverseWidth + "%", backgroundImage: "none", backgroundColor: "grey", color: "white"}}/>
+                        </ProgressBar> 
                     </div>
                 </div>
                 );
     }
 }
 
-class RaidProgressToolTip extends Component{
+class RaidProgressionToolTip extends Component{
     render () {
         var name = this.props.raid;
         var progress = this.props.progress;

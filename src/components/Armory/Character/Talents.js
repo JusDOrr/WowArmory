@@ -3,6 +3,9 @@ import { Well, PanelGroup, Panel } from 'react-bootstrap';
 
 import * as BlizzardAPI from './../../../data/BlizzardAPI.js';
 
+import HordeBackground from './../../../images/RedChalkboard.jpg'
+import AlliBackground from './../../../images/BlueChalkboard.jpg'
+
 import './talent.css';
 
 class Talents extends Component{
@@ -36,10 +39,21 @@ class Talents extends Component{
         return className;
     }
 
+    getTalentBackground = (faction) => {
+        var className = AlliBackground;
+
+        if (faction === "Horde")
+            className = HordeBackground;
+
+        return className;
+    }
+
+    // TODO:: THIS NEEDS REWORK NOW THAT PANELGROUP HAS CHANGED!!!
     render () {
         var talentsData = this.props.data;
         var ControlPanelClass = this.getTalentClass(this.props.faction);
         var ControlPanelDescClass = this.getTalentDescClass(this.props.faction);
+        var Background = this.getTalentBackground(this.props.faction);
 
         var talents = "";
         if (talentsData) {
@@ -58,13 +72,13 @@ class Talents extends Component{
 
                     var uniqueKey = "ctcPanel-" + talent.spec.name;
                     return (<Panel id={uniqueKey} key={uniqueKey} eventKey={eventKey++}>
-                                <Panel.Heading className="talentControlHeader">
+                                <Panel.Heading className="{ControlPanelClass} talentControlHeader" style={{color: "var(--GoldColor)", backgroundImage: "url(" + Background + ")", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
                                     <Panel.Title toggle>
                                         <img src={icon} />
                                         <label>{talent.spec.name}</label>
                                     </Panel.Title>
                                 </Panel.Heading>
-                                <Panel.Body className={ControlPanelClass} collapsible>
+                                <Panel.Body className={ControlPanelClass} collapsible style={{color: "var(--GoldColor)", backgroundImage: "url(" + Background + ")", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
                                     <Well className={ControlPanelDescClass}>{talent.spec.description}</Well>
                                     <div className="talentSpellsContainer">
                                         {spells}

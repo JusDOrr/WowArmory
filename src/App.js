@@ -7,6 +7,7 @@ import Armory from './components/Armory/Armory';
 import Realms from './components/Realms/Realms';
 
 import './App.css';
+import './site.css';
 
 class App extends Component{
   render() {

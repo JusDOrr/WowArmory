@@ -1,0 +1,6 @@
+.collections {
+    width: var(--ControlWidth);
+    height: 600px;
+
+    margin: auto;
+}
