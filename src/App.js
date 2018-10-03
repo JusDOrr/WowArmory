@@ -12,10 +12,10 @@ import './site.css';
 class App extends Component{
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename="/WowArmory">
         <div>
           <HeaderNavBar />
-            <NavBarRouter />
+          <NavBarRouter />
           <Footer />
         </div>
       </BrowserRouter>
