@@ -1,4 +1,4 @@
-var addAPIKeyField = function () { return "&apikey=83pjrytmmwp4zv96jbe4ht8j6xtbdfw2"; };
+var addAPIKeyField = function () { return "&apikey="; };
 var addLocaleField = function () { return "en_US"; };
 
 var GET = function (apiPath, loadCallBack, errorCallBack) {

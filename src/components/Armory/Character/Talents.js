@@ -64,6 +64,7 @@ class Talents extends Component{
 
                     // (No longer) Sorting by the tier value first, then mapping spells
                     var spells = talent.talents
+                            .filter(x => x)
                             .sort(function (a, b) { return (a.tier > b.tier) ? 1 : ((b.tier > a.tier) ? -1 : 0); })
                             .map(function (spell) {
                                 var uniqueKey = "talentSpell-" + spell.spell.name;
@@ -71,7 +72,7 @@ class Talents extends Component{
                             });
 
                     var uniqueKey = "ctcPanel-" + talent.spec.name;
-                    return (<Panel id={uniqueKey} key={uniqueKey} eventKey={eventKey++}>
+                    return (<Panel id={uniqueKey} key={uniqueKey} eventKey={eventKey++} style={{maxHeight: "250px"}}>
                                 <Panel.Heading className="{ControlPanelClass} talentControlHeader" style={{color: "var(--GoldColor)", backgroundImage: "url(" + Background + ")", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
                                     <Panel.Title toggle>
                                         <img src={icon} />

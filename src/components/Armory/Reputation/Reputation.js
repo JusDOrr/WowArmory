@@ -28,7 +28,7 @@ class Reputation extends Component{
 
         return (
                 <Well className="reputation" style={{ height: "auto", backgroundImage: "var(--AlliBackImage)", backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
-                    <div>LEGION</div>
+                    <div style={{color: "rgb(248, 183, 0)", fontSize: "20px"}}>LEGION</div>
                     {repProgress}
                 </Well>
                 );
@@ -65,10 +65,18 @@ class ReputationProgress extends Component{
 
         var max = (rep.max === 0) ? 100 : rep.max;
         var now = (rep.value === 0 && rep.max === 0) ? 100 : rep.value;
+
         var label = (max === 100 && now === 100) ? "" : rep.value + "\/" + rep.max;
+        var invLabel = (rep.value === 0 && rep.max !== 0) ? "Not Started" : "";
 
         var standing = ClassDetails.GetReputationInfo(rep.standing, rep.max);
         var style = this.getProgressStyle(rep.standing);
+
+        var progressWidth = (rep.value === 0 && rep.max === 0) ? 100 : Math.floor((rep.value / rep.max) * 100);
+        if(progressWidth === 0 && rep.value > 0)
+            progressWidth = 10;
+
+        var inverseWidth = (100 - progressWidth);
 
         return (
                 <div style={{ color: "var(--GoldColor)" }}>
@@ -76,8 +84,12 @@ class ReputationProgress extends Component{
                         <div>{rep.name}</div>
                         <div>{standing}</div>
                     </div>
-                    <ProgressBar bsStyle={style} min={0} max={max} now={now} label={label}
-                        style={{ backgroundColor: "#222", display: "inline-block", width: "735px", marginLeft: "0", marginBottom: "5px" }} />
+                    <ProgressBar min={0} max={max} style={{ backgroundColor: "#222", display: "inline-block", width: "735px", marginLeft: "0", marginBottom: "5px" }} >
+                        <ProgressBar active bsStyle={style} now={now} label={label}
+                                    style={{width: progressWidth + "%", color: "white"}}/>
+                        <ProgressBar now={rep.max - rep.value} label={invLabel}
+                                    style={{width: inverseWidth + "%", backgroundImage: "none", backgroundColor: "grey", color: "white"}}/>
+                    </ProgressBar>
                 </div>
                );
     }
