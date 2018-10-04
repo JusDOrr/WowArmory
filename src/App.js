@@ -13,7 +13,7 @@ class App extends Component{
   render() {
     return (
       <BrowserRouter basename="/WowArmory">
-        <div>
+        <div style={{minHeight: "calc(100vh - 112px)"}}>
           <HeaderNavBar />
           <NavBarRouter />
           <Footer />

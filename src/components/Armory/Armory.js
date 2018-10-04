@@ -45,7 +45,8 @@ class Armory extends Component{
         
         return (
             <div>
-              <Well className="pageWell">
+              <Well className="pageWell" style={{minHeight: "calc(100vh - 112px)"}}>
+                <div>
                   {HeaderElement}
                   {DescElement}
                   <Form inline className="armory-form">
@@ -62,6 +63,7 @@ class Armory extends Component{
                       </Button>
                   </Form>
                   {BodyElement}
+                </div>
               </Well>
           </div>
           );
