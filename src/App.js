@@ -24,7 +24,7 @@ class App extends Component{
 }
 
 const NavBarRouter = () => (
-  <main>
+  <main style={{minHeight: "calc(100vh - 112px)"}}>
     <Switch>
         <Route exact path='/' component={Realms}/>
         <Route path='/armory' component={Armory}/>

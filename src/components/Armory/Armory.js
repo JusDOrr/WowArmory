@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-
 import { Well, PageHeader, Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 
 import * as BlizzardAPI from './../../data/BlizzardAPI.js';
 import Character from './Character/Character.js';
+
+import DefaultImage from './../../extra/FullChar.png'
+
 import './armory.css';
 
 class Armory extends Component{
@@ -32,8 +34,7 @@ class Armory extends Component{
 
     render() {
         var HeaderElement = React.createElement(PageHeader, { className: "pageHeader" }, "Armory");
-        var DescElement = React.createElement("p", { className: "pageDescription" },
-                                "This page consumes Blizzard's WOW Character APIs.");
+        var DescElement = React.createElement("p", { className: "pageDescription" }, "This page consumes Blizzard's WOW Character APIs.");
 
         var BodyElement = "";
         if (this.state.characterDetails) {
@@ -42,7 +43,10 @@ class Armory extends Component{
             else
                 BodyElement = React.createElement(Character, { data: this.state.characterDetails }, null);
         }
-        
+        else {
+            BodyElement = (<div style={{textAlign: 'center', margin: '20px 0'}}><img src={DefaultImage} style={{opacity: ".75"}}/></div>);
+        }
+
         return (
             <div>
               <Well className="pageWell" style={{minHeight: "calc(100vh - 112px)"}}>
